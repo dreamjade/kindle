@@ -1,8 +1,12 @@
 # kindle-time
 
-Use the clock on your Kindle. fork from [lecepin/kindle-time](https://github.com/lecepin/kindle-time)
+Use the clock on your Kindle.
 
-Can visit [https://dreamjade.github.io/kindle/?r=270](https://dreamjade.github.io/kindle/?r=270)
+![image](https://user-images.githubusercontent.com/11046969/212535636-9501936f-584c-4ce9-9a9a-ea7d0ac4e1c4.png)
+
+
+
+Can visit [https://lecepin.github.io/kindle-time/](https://lecepin.github.io/kindle-time/) or [http://ktime.leping.fun/](http://ktime.leping.fun/).
 
 ### URL parameters
 
@@ -12,14 +16,13 @@ Can visit [https://dreamjade.github.io/kindle/?r=270](https://dreamjade.github.i
 
 The required configuration items can be set individually or together.
 
-For example: `https://dreamjade.github.io/kindle-time/?fs=10&r=270`:
+For example: `http://ktime.leping.fun/?fs=10&r=90`:
+
+![image](https://user-images.githubusercontent.com/11046969/212535887-d9fa8ec4-6795-455f-ae18-5f104dadf47c.png)
+
 
 ### Screen always on
-1) Connect to your Kindle via USB
-2) Create a file in the root directory called "TESTD_PREVENT_SCREENSAVER" - can be an empty file, but must be named exactly. (It'll ultimately sit in /mnt/us/ )
-3) Reboot the device
-----------
-For old devices
 
 Do not turn off the screen settings.
+
 In the system search box, enter `~ds`.
