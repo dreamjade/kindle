@@ -2,7 +2,7 @@
 
 Use the clock on your Kindle. fork from [lecepin/kindle-time](https://github.com/lecepin/kindle-time)
 
-Can visit [https://dreamjade.github.io/kindle-time/?r=270](https://dreamjade.github.io/kindle-time/?r=270)
+Can visit [https://dreamjade.github.io/kindle/?r=270](https://dreamjade.github.io/kindle/?r=270)
 
 ### URL parameters
 
