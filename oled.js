@@ -13,7 +13,7 @@ function setupOLEDProtection() {
     }
   }
 
-  // Move the app every 5 seconds (adjust interval as needed)
+  // Move the app every 5 minutes (adjust interval as needed)
   setInterval(moveApp, 300000);
 }
 
