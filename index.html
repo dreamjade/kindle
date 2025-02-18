@@ -24,7 +24,7 @@
       overflow: hidden;
       background-color: #f0f0f0; /* Light mode background */
       color: #000; /* Light mode text color */
-      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition for dark mode and movement*/
     }
 
     body.dark-mode {
@@ -38,6 +38,7 @@
       left: 50%;
       transform: translate(-50%, -50%); /* Center the app */
       -webkit-transform-origin: 0 0; /* Keep for older webkit versions if needed */
+      transition: transform 0.3s ease; /* Smooth transition for movement */
     }
 
     .time {
@@ -69,6 +70,7 @@
 
   <script src="./calendar.min.js"></script>
   <script src="./index.min.js"></script>
+  <script src="./oled.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const body = document.body;
