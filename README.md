@@ -6,7 +6,7 @@ Can visit [https://dreamjade.github.io/kindle/?tz=7&r=90](https://dreamjade.gith
 
 ### URL parameters
 
-- `tz`: set time zone. Default value -7.
+- `tz`: set time zone. Default value 8.
 - `fs`: set font size. Default value 7.
 - `r`: set rotate. Default value 0. It is used to rotate the screen display, such as setting 90, the display will be rotated 90 degrees.
 - `l`: set lang. The zh-TW day of the week is displayed by default. You can set `en`.
