@@ -11,7 +11,7 @@ Can visit [https://dreamjade.github.io/kindle/?tz=7&r=90](https://dreamjade.gith
 - `r`: set rotate. Default value 0. It is used to rotate the screen display, such as setting 90, the display will be rotated 90 degrees.
 - `l`: set lang. The zh-TW day of the week is displayed by default. You can set `en`.
 - `tm`: set dark/light mode. The light mode (`light`) is displayed by default. You can set `dark` to enable dark mode.
-- `ofs`: Add a time offset in milliseconds. Default value 0. Can be used to adjust the clock if it's slightly ahead or behind.
+- `ofs`: Add a time offset in milliseconds every day. Default value 0. Can be used to adjust the clock if it's slightly ahead or behind.
 
 The required configuration items can be set individually or together.
 
