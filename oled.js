@@ -1,21 +1,61 @@
 function setupOLEDProtection() {
-  const appElement = document.querySelector('.app');
-  const body = document.body;
+  var appElement = document.querySelector('.app');
+  var body = document.body;
 
-  // Function to move the app slightly
+  if (!appElement || !body) {
+    if (typeof console_log_on_screen === 'function') {
+        console_log_on_screen("OLED: .app or body not found.");
+    }
+    return;
+  }
+
   function moveApp() {
-    if (body.classList.contains('dark-mode')) {
-      const randomX = Math.random() * 6 - 3; // Random value between -3 and 3 pixels
-      const randomY = Math.random() * 6 - 3; // Random value between -3 and 3 pixels
-      appElement.style.transform = `translate(calc(-50% + ${randomX}px), calc(-50% + ${randomY}px))`;
-    } else {
-      appElement.style.transform = 'translate(-50%, -50%)'; // Reset to center in light mode
+    try {
+        var isDarkMode = false;
+        if (body.classList && typeof body.classList.contains === 'function') {
+            isDarkMode = body.classList.contains('dark-mode');
+        } else if (body.className) { 
+            isDarkMode = (' ' + body.className + ' ').indexOf(' dark-mode ') > -1;
+        }
+
+        var currentRotation = "0"; 
+        if (typeof config !== 'undefined' && config.rotate) {
+            currentRotation = String(config.rotate);
+        }
+
+        var transformToSet;
+        if (isDarkMode) {
+          var randomX = Math.random() * 6 - 3; 
+          var randomY = Math.random() * 6 - 3; 
+          
+          // IMPORTANT: Kindle might not support CSS calc().
+          // If calc() is an issue, this pixel offset won't work well with percentage centering.
+          // A simpler approach might be to slightly alter margin or padding if calc fails.
+          // For now, attempting with calc().
+          var newTranslateX = "calc(-50% + " + randomX + "px)";
+          var newTranslateY = "calc(-50% + " + randomY + "px)";
+          
+          transformToSet = "translate(" + newTranslateX + ", " + newTranslateY + ") rotate(" + currentRotation + "deg)";
+        } else {
+          // Reset to center in light mode, still applying rotation
+          transformToSet = "translate(-50%, -50%) rotate(" + currentRotation + "deg)";
+        }
+        
+        appElement.style.webkitTransform = transformToSet;
+        appElement.style.transform = transformToSet;
+
+    } catch(e) {
+        if (typeof console_log_on_screen === 'function') {
+            console_log_on_screen("Error in moveApp: " + e.message);
+        }
     }
   }
 
-  // Move the app every 5 minutes (adjust interval as needed)
-  setInterval(moveApp, 300000);
+  setInterval(moveApp, 300000); 
+  if (typeof console_log_on_screen === 'function') {
+    console_log_on_screen("OLED protection moveApp interval started.");
+  } else {
+      // alert("OLED Protection Active (no advanced log)"); // Basic feedback
+  }
 }
-
-// Call the setup function when the script is loaded
-setupOLEDProtection();
+// setupOLEDProtection is now called from index.min.js after config is ready.
