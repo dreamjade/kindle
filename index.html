@@ -20,25 +20,15 @@
     body {
       height: 100vh;
       width: 100%;
-      text-align: center;
+      text-align: center;      
       overflow: hidden;
-      background-color: #ffffff; /* Light mode background */
-      color: #000; /* Light mode text color */
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition for dark mode and movement*/
-    }
-
-    body.dark-mode {
-      background-color: #000000; /* Dark mode background */
-      color: #fff; /* Dark mode text color */
     }
 
     .app {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); /* Center the app */
-      -webkit-transform-origin: 0 0; /* Keep for older webkit versions if needed */
-      transition: transform 0.3s ease; /* Smooth transition for movement */
+      -webkit-transform-origin: 0 0;
     }
 
     .time {
@@ -51,58 +41,18 @@
     }
 
     .cn-date {}
-
-    .festival {
-      margin-top: 0.5rem;
-    }
-
   </style>
 </head>
 
 <body>
-
   <div class="app">
     <div class="date"></div>
     <div class="time"></div>
     <div class="cn-date"></div>
-    <div class="festival"></div>
   </div>
 
   <script src="./calendar.min.js"></script>
   <script src="./index.min.js"></script>
-  <script src="./oled.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const body = document.body;
-      const urlParams = new URLSearchParams(window.location.search);
-      const tmParam = urlParams.get('tm');
-
-      // Function to enable dark mode
-      function enableDarkMode() {
-        body.classList.add('dark-mode');
-        localStorage.setItem('darkMode', 'true');
-      }
-
-      // Function to disable dark mode (light mode)
-      function disableDarkMode() {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('darkMode', 'false');
-      }
-
-      // Check URL parameter 'tm'
-      if (tmParam === 'dark') {
-        enableDarkMode();
-      } else if (tmParam === 'light') {
-        disableDarkMode();
-      } else {
-        // No 'tm' parameter, check local storage
-        if (localStorage.getItem('darkMode') === 'true') {
-          enableDarkMode();
-        }
-        // If localStorage is not 'true' or not set, default to light mode (no action needed as default styles are light mode)
-      }
-    });
-  </script>
 </body>
 
 </html>
